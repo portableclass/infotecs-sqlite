@@ -22,7 +22,7 @@ This project implements an automated build pipeline for SQLite library across mu
    unzip sqlite-amalgamation-3260000.zip -d sqlite-sources
 ```
 
-2. **Use my [CMakeLists.txt](https://)**
+2. **Use my [CMakeLists.txt](https://github.com/portableclass/infotecs-sqlite/blob/master/1_build-sqlite-so/sqlite-sources/CMakeLists.txt)**
 3. **Run build**:
 ```bash
    mkdir build && cd build
@@ -34,7 +34,7 @@ user@host:~/sqlite-sources/build$ ls -a
 .  ..  CMakeCache.txt  CMakeFiles  Makefile  cmake_install.cmake  libsqlite3.so
 ```
 
-### Follow steps in [readme-get-image-from-dockerfile.md](https://) to create Docker Image
+### Follow steps in [readme-get-image-from-dockerfile.md](https://github.com/portableclass/infotecs-sqlite/blob/master/1_build-sqlite-so/readme-get-image-from-dockerfile.md) to create Docker Image
 
 
 
@@ -52,11 +52,11 @@ user@host:~/sqlite-sources/build$ ls -a
 - ansible
 
 ### Artifacts
-1. [Vagrantfile](https://) - VM configuration
+1. [Vagrantfile](https://github.com/portableclass/infotecs-sqlite/blob/master/2_vm-vagrant-ansible/Vagrantfile) - VM configuration
 
-2. [install-docker.yml](https://) - Docker setup playbook
+2. [install-docker.yml](https://github.com/portableclass/infotecs-sqlite/blob/master/2_vm-vagrant-ansible/install-docker.yml) - Docker setup playbook
 
-3. [build-sqlite.yml](https://) - Build automation playbook
+3. [build-sqlite.yml](https://github.com/portableclass/infotecs-sqlite/blob/master/2_vm-vagrant-ansible/build-sqlite.yml) - Build automation playbook
 
 ### Run VM
 ```bash
@@ -82,9 +82,9 @@ conan-app/
 ```
 
 ### Artifacts
-1. Source files ([main.cpp](https://))
+1. Source files ([main.cpp](https://github.com/portableclass/infotecs-sqlite/blob/master/3_conan-example/conan-app/src/main.cpp))
 
-2. Build configuration ([conanfile.py](https://), [CMakeLists.txt](https://))
+2. Build configuration ([conanfile.py](https://github.com/portableclass/infotecs-sqlite/blob/master/3_conan-example/conan-app/conanfile.py), [CMakeLists.txt](https://github.com/portableclass/infotecs-sqlite/blob/master/3_conan-example/conan-app/CMakeLists.txt))
 
 ### Run build
 
@@ -107,7 +107,7 @@ conan-app/
 ---
 ## 🚀 CI/CD for building SQLite library in GitLab
 
-### Use my GitLab CI configuration ([.gitlab-ci.yml](https://))
+### Use my GitLab CI configuration ([.gitlab-ci.yml](https://github.com/portableclass/infotecs-sqlite/blob/master/4_gitlab/.gitlab-ci.yml))
 
 ## 🔗 Links
 
