@@ -1,0 +1,41 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "debian/bookworm64"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  config.vm.provider "libvirt" do |lv|
+    lv.cpus = 2
+    lv.memory = 4096
+  end
+
+#  config.vm.provision "shell", inline: <<-SHELL
+#    set -e
+#    sudo apt-get update -y
+#    sudo apt-get install -y ca-certificates curl gnupg lsb-release
+#
+#    sudo install -m 0755 -d /etc/apt/keyrings
+#    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor | sudo tee /etc/apt/keyrings/docker.gpg > /dev/null
+#    sudo chmod a+r /etc/apt/keyrings/docker.gpg
+#
+#    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+#    https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+#
+#    sudo apt-get update -y
+#    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+#
+#    sudo systemctl enable docker
+#    sudo systemctl start docker
+#  SHELL
+
+  # install docker
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "install-docker.yml"
+    ansible.become = true
+  end
+
+  # build sqlite lib .so
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "build-sqlite.yml"
+    ansible.become = true
+  end
+end
+

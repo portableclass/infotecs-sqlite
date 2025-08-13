@@ -1,0 +1,78 @@
+﻿**********************
+Начало записи сценария Windows PowerShell
+Время начала: 20250812140619
+Имя пользователя: YASH\portableclass
+Запуск от имени пользователя: YASH\portableclass
+Имя конфигурации: 
+Компьютер: YASH (Microsoft Windows NT 10.0.22000.0)
+Ведущее приложение: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+ИД процесса: 12124
+PSVersion: 5.1.22000.2538
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22000.2538
+BuildVersion: 10.0.22000.2538
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Транскрибирование запущено, выходной файл C:\Users\portableclass\Downloads\sqlite-sources\session_log.txt
+PS C:\Users\portableclass\Downloads\sqlite-sources> mkdir build; cd build
+
+
+    Каталог: C:\Users\portableclass\Downloads\sqlite-sources
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        12.08.2025     14:06                build
+
+
+PS C:\Users\portableclass\Downloads\sqlite-sources\build> cmake -G "Visual Studio 16 2019" ..
+-- Selecting Windows SDK version 10.0.19041.0 to target Windows 10.0.22000.
+-- The C compiler identification is MSVC 19.29.30138.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done (1.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/Users/portableclass/Downloads/sqlite-sources/build
+PS C:\Users\portableclass\Downloads\sqlite-sources\build> cmake --build . --config Release
+Microsoft (R) Build Engine версии 16.11.2+f32259642 для .NET Framework
+(C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/portableclass/Downloads/sqlite-sources/CMakeLists.txt
+  sqlite3.c
+  sqlite3.vcxproj -> C:\Users\portableclass\Downloads\sqlite-sources\build\Release\sqlite3.dll
+  Building Custom Rule C:/Users/portableclass/Downloads/sqlite-sources/CMakeLists.txt
+PS C:\Users\portableclass\Downloads\sqlite-sources\build> ls
+
+
+    Каталог: C:\Users\portableclass\Downloads\sqlite-sources\build
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        12.08.2025     14:06                CMakeFiles
+d-----        12.08.2025     14:06                Release
+d-----        12.08.2025     14:06                sqlite3.dir
+d-----        12.08.2025     14:06                x64
+-a----        12.08.2025     14:06          41433 ALL_BUILD.vcxproj
+-a----        12.08.2025     14:06            302 ALL_BUILD.vcxproj.filters
+-a----        12.08.2025     14:06          13218 CMakeCache.txt
+-a----        12.08.2025     14:06           1969 cmake_install.cmake
+-a----        12.08.2025     14:06          53686 sqlite3.vcxproj
+-a----        12.08.2025     14:06            608 sqlite3.vcxproj.filters
+-a----        12.08.2025     14:06           3114 SQLiteBuild.sln
+-a----        12.08.2025     14:06          41507 ZERO_CHECK.vcxproj
+-a----        12.08.2025     14:06            545 ZERO_CHECK.vcxproj.filters
+
+
+PS C:\Users\portableclass\Downloads\sqlite-sources\build> Stop-Transcript
+**********************
+Конец записи протокола Windows PowerShell
+Время окончания: 20250812140658
+**********************

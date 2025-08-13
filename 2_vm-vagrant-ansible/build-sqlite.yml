@@ -1,0 +1,42 @@
+---
+- name: Build SQLite .so library using Docker inside VM
+  hosts: all
+  become: true
+  tasks:
+    - name: Pull sqlite-builder docker image (ignore errors)
+      command: docker pull portableclass/sqlite-builder
+      register: pull_result
+      failed_when: false
+      changed_when: "'Downloaded newer image' in pull_result.stdout or 'Image is up to date' in pull_result.stdout"
+
+    - name: Create output directory inside VM
+      file:
+        path: /home/vagrant/sqlite-build
+        state: directory
+        mode: '0755'
+        owner: vagrant
+        group: vagrant
+
+    - name: Run Docker container to build SQLite library inside VM
+      command: >
+        docker run --rm
+        -v /home/vagrant/sqlite-build:/output
+        portableclass/sqlite-builder
+      args:
+        creates: /home/vagrant/sqlite-build/libsqlite3.so
+
+    - name: Check if libsqlite3.so file was created inside VM
+      stat:
+        path: /home/vagrant/sqlite-build/libsqlite3.so
+      register: sqlite_lib
+
+    - name: Show info about libsqlite3.so inside VM
+      debug:
+        msg: "libsqlite3.so was created successfully, size: {{ sqlite_lib.stat.size }} bytes"
+      when: sqlite_lib.stat.exists
+
+    - name: Fail if libsqlite3.so not found inside VM
+      fail:
+        msg: "libsqlite3.so was not created inside VM!"
+      when: not sqlite_lib.stat.exists
+

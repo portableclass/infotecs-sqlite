@@ -1,0 +1,148 @@
+(python_venv) omotonaros@deb12host:~$ cd conan-app/
+(python_venv) omotonaros@deb12host:~/conan-app$ mkdir build && cd build
+(python_venv) omotonaros@deb12host:~/conan-app/build$ conan install .. --build=missing \
+    -s compiler=gcc \
+    -s compiler.version=12 \
+    -s compiler.libcxx=libstdc++11
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=12
+os=Linux
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=12
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (hello_conan/1.0): /home/omotonaros/conan-app/conanfile.py
+Requirements
+    cxxopts/3.1.1#b358aff6883980b4f0915734a5c8214a - Cache
+
+======== Computing necessary packages ========
+Requirements
+    cxxopts/3.1.1#b358aff6883980b4f0915734a5c8214a:da39a3ee5e6b4b0d3255bfef95601890afd80709#f4dfdc9b149c1875d795ceac4820564f - Cache
+
+======== Installing packages ========
+cxxopts/3.1.1: Already installed! (1 of 1)
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (hello_conan/1.0): Writing generators to /home/omotonaros/conan-app/build/Release/generators
+conanfile.py (hello_conan/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (hello_conan/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(cxxopts)
+    target_link_libraries(... cxxopts::cxxopts)
+conanfile.py (hello_conan/1.0): Calling generate()
+conanfile.py (hello_conan/1.0): Generators folder: /home/omotonaros/conan-app/build/Release/generators
+conanfile.py (hello_conan/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (hello_conan/1.0): CMakeToolchain: Preset 'conan-release' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-release
+    (cmake<3.23) cmake <path> -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release
+conanfile.py (hello_conan/1.0): CMakeToolchain generated: /home/omotonaros/conan-app/build/Release/generators/CMakePresets.json
+conanfile.py (hello_conan/1.0): CMakeToolchain generated: /home/omotonaros/conan-app/CMakeUserPresets.json
+conanfile.py (hello_conan/1.0): Generating aggregated env files
+conanfile.py (hello_conan/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+(python_venv) omotonaros@deb12host:~/conan-app/build$ conan build ..
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=12
+os=Linux
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=12
+os=Linux
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.py (hello_conan/1.0): /home/omotonaros/conan-app/conanfile.py
+Requirements
+    cxxopts/3.1.1#b358aff6883980b4f0915734a5c8214a - Cache
+
+======== Computing necessary packages ========
+Requirements
+    cxxopts/3.1.1#b358aff6883980b4f0915734a5c8214a:da39a3ee5e6b4b0d3255bfef95601890afd80709#f4dfdc9b149c1875d795ceac4820564f - Cache
+
+======== Installing packages ========
+cxxopts/3.1.1: Already installed! (1 of 1)
+
+======== Finalizing install (deploy, generators) ========
+conanfile.py (hello_conan/1.0): Writing generators to /home/omotonaros/conan-app/build/Release/generators
+conanfile.py (hello_conan/1.0): Generator 'CMakeDeps' calling 'generate()'
+conanfile.py (hello_conan/1.0): CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(cxxopts)
+    target_link_libraries(... cxxopts::cxxopts)
+conanfile.py (hello_conan/1.0): Calling generate()
+conanfile.py (hello_conan/1.0): Generators folder: /home/omotonaros/conan-app/build/Release/generators
+conanfile.py (hello_conan/1.0): CMakeToolchain generated: conan_toolchain.cmake
+conanfile.py (hello_conan/1.0): CMakeToolchain: Preset 'conan-release' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-release
+    (cmake<3.23) cmake <path> -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release
+conanfile.py (hello_conan/1.0): CMakeToolchain generated: /home/omotonaros/conan-app/build/Release/generators/CMakePresets.json
+conanfile.py (hello_conan/1.0): CMakeToolchain generated: /home/omotonaros/conan-app/CMakeUserPresets.json
+conanfile.py (hello_conan/1.0): Generating aggregated env files
+conanfile.py (hello_conan/1.0): Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+
+======== Calling build() ========
+conanfile.py (hello_conan/1.0): Calling build()
+conanfile.py (hello_conan/1.0): Running CMake.configure()
+conanfile.py (hello_conan/1.0): RUN: cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE="generators/conan_toolchain.cmake" -DCMAKE_INSTALL_PREFIX="/home/omotonaros/conan-app" -DCMAKE_POLICY_DEFAULT_CMP0091="NEW" -DCMAKE_BUILD_TYPE="Release" "/home/omotonaros/conan-app"
+-- Using Conan toolchain: /home/omotonaros/conan-app/build/Release/generators/conan_toolchain.cmake
+-- Conan toolchain: Defining architecture flag: -m64
+-- Conan toolchain: C++ Standard 17 with extensions ON
+-- The C compiler identification is GNU 12.2.0
+-- The CXX compiler identification is GNU 12.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Conan: Target declared 'cxxopts::cxxopts'
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/omotonaros/conan-app/build/Release
+
+conanfile.py (hello_conan/1.0): Running CMake.build()
+conanfile.py (hello_conan/1.0): RUN: cmake --build "/home/omotonaros/conan-app/build/Release" -- -j12
+[ 50%] Building CXX object CMakeFiles/hello_conan.dir/src/main.cpp.o
+[100%] Linking CXX executable hello_conan
+[100%] Built target hello_conan
+
+(python_venv) omotonaros@deb12host:~/conan-app/build$ ./Release/hello_conan 
+Hello, World!
+(python_venv) omotonaros@deb12host:~/conan-app/build$ ./Release/hello_conan --name=Conan
+Hello, Conan!
+

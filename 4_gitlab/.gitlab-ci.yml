@@ -1,0 +1,27 @@
+stages:
+  - build
+
+variables:
+  DOCKER_HOST: tcp://docker:2375/
+  DOCKER_TLS_CERTDIR: ""
+
+build_sqlite:
+  image:
+    name: docker:24.0.5 
+    entrypoint: [""]
+  services:
+    - docker:dind 
+  stage: build
+  script:
+    - mkdir -p sqlite-build
+    - docker pull portableclass/sqlite-builder || true
+    - docker run --rm -v $PWD/sqlite-build:/output portableclass/sqlite-builder
+    - |
+      if [ -f sqlite-build/libsqlite3.so ]; then
+        echo "libsqlite3.so was created successfully!"
+        ls -lh sqlite-build/libsqlite3.so
+      else
+        echo "libsqlite3.so was NOT created!"
+        exit 1
+      fi
+
